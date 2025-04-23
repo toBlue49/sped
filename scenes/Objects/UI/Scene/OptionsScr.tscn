@@ -1,0 +1,283 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://textures/uibg.png" type="Texture" id=1]
+[ext_resource path="res://textures/UI/logo.png" type="Texture" id=2]
+[ext_resource path="res://scenes/Objects/UI/Theme.tres" type="Theme" id=3]
+[ext_resource path="res://scenes/Objects/UI/changeSceneBtn.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Objects/UI/ThemeWithButton.tres" type="Theme" id=5]
+[ext_resource path="res://scripts/UI/musicVolSlider.gd" type="Script" id=7]
+[ext_resource path="res://scripts/UI/explodeVolSlider.gd" type="Script" id=8]
+[ext_resource path="res://textures/Fonts/ConcertOne-font-small.tres" type="DynamicFont" id=9]
+[ext_resource path="res://textures/UI/back_hover.png" type="Texture" id=10]
+[ext_resource path="res://textures/UI/back.png" type="Texture" id=11]
+[ext_resource path="res://scripts/UI/DeleteSafe.gd" type="Script" id=12]
+[ext_resource path="res://scripts/UI/SwitchScript.gd" type="Script" id=13]
+[ext_resource path="res://scripts/UI/CreditsBtn.gd" type="Script" id=14]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="StyleBoxEmpty" id=12]
+
+[node name="MainScr" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -3.0
+margin_bottom = 11.0
+theme = ExtResource( 5 )
+
+[node name="Bg" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.0
+margin_right = 5.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 1
+
+[node name="Logo" type="TextureRect" parent="."]
+anchor_left = 0.320313
+anchor_top = 0.04
+anchor_right = 0.680664
+anchor_bottom = 0.346667
+margin_bottom = -1.52588e-05
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="BackBtn" parent="." instance=ExtResource( 4 )]
+anchor_left = 0.0244858
+anchor_top = 0.0409165
+anchor_right = 0.151812
+anchor_bottom = 0.253682
+margin_right = 0.0
+margin_bottom = 0.0
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 10 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+next_scene_path = "res://scenes/Objects/UI/Scene/MainScr.tscn"
+level_select = -1
+
+[node name="Control" type="Control" parent="."]
+anchor_left = 0.101861
+anchor_top = 0.392799
+anchor_right = 0.639569
+anchor_bottom = 0.764321
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="musicVolSlider" type="HSlider" parent="Control"]
+anchor_left = 0.0191256
+anchor_top = 0.262114
+anchor_right = 0.980874
+anchor_bottom = 0.403084
+theme = ExtResource( 3 )
+min_value = -50.0
+max_value = 0.0
+step = 0.1
+ticks_on_borders = true
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="Control/musicVolSlider"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -120.0
+margin_top = -56.0
+margin_right = 120.0
+margin_bottom = -16.0
+text = "Music Volume"
+align = 1
+
+[node name="explodeVolSlider" type="HSlider" parent="Control"]
+anchor_left = 0.0191256
+anchor_top = 0.680617
+anchor_right = 0.980874
+anchor_bottom = 0.821586
+theme = ExtResource( 3 )
+min_value = -45.0
+max_value = 0.0
+step = 0.1
+ticks_on_borders = true
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Warning" type="Label" parent="Control/explodeVolSlider"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -153.0
+margin_top = 15.0
+margin_right = 153.0
+margin_bottom = 55.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = ExtResource( 9 )
+text = "Warning! The Explosion is LOUD :O"
+align = 1
+
+[node name="Label" type="Label" parent="Control/explodeVolSlider"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -133.0
+margin_top = -56.0
+margin_right = 133.0
+margin_bottom = -16.0
+text = "Explode Volume"
+align = 1
+
+[node name="CreditsButton" type="Button" parent="."]
+anchor_left = 0.752204
+anchor_top = 0.144026
+anchor_right = 0.928501
+anchor_bottom = 0.265139
+margin_bottom = 1.52588e-05
+text = "Credits"
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.708129
+anchor_top = 0.474632
+anchor_right = 0.971596
+anchor_bottom = 0.713585
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TrailCheckButton" type="CheckButton" parent="VBoxContainer"]
+margin_right = 269.0
+margin_bottom = 46.0
+focus_mode = 1
+enabled_focus_mode = 1
+text = "Show Trail"
+align = 1
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="FpsCheckButton" type="CheckButton" parent="VBoxContainer"]
+margin_top = 50.0
+margin_right = 269.0
+margin_bottom = 96.0
+text = "Show FPS"
+align = 1
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+SwitchType = 1
+
+[node name="BigTextButton" type="CheckButton" parent="VBoxContainer"]
+margin_top = 100.0
+margin_right = 269.0
+margin_bottom = 146.0
+text = "Bigger Text"
+align = 1
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+SwitchType = 3
+
+[node name="CornerScreenFixToggle" type="CheckButton" parent="."]
+anchor_left = 0.00783546
+anchor_top = 0.824877
+anchor_right = 0.378061
+anchor_bottom = 0.900164
+text = "Screen Corner Fix"
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+SwitchType = 2
+
+[node name="DeleteInfo" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -190.5
+margin_top = -43.0
+margin_right = 183.5
+margin_bottom = -3.0
+rect_pivot_offset = Vector2( -568, -200 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = ExtResource( 9 )
+text = "To Delete your Savefile press \"ALT+DEL\""
+align = 1
+script = ExtResource( 12 )
+
+[node name="DeleteInfoMobile" type="Label" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -187.0
+margin_top = -40.0
+margin_right = 187.0
+rect_pivot_offset = Vector2( -568, -200 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = ExtResource( 9 )
+text = "To Delete your Savefile press here!"
+align = 1
+
+[node name="Button" type="Button" parent="DeleteInfoMobile"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 93.0
+margin_top = -48.0
+margin_right = 165.0
+margin_bottom = -2.0
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/focus = SubResource( 10 )
+custom_styles/disabled = SubResource( 11 )
+custom_styles/normal = SubResource( 12 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0 )
+
+[connection signal="value_changed" from="Control/musicVolSlider" to="Control/musicVolSlider" method="_on_musicVolSlider_value_changed"]
+[connection signal="value_changed" from="Control/explodeVolSlider" to="Control/explodeVolSlider" method="_on_explodeVolSlider_value_changed"]
+[connection signal="pressed" from="CreditsButton" to="CreditsButton" method="_on_pressed"]
+[connection signal="toggled" from="VBoxContainer/TrailCheckButton" to="VBoxContainer/TrailCheckButton" method="_on_toggle"]
+[connection signal="toggled" from="VBoxContainer/FpsCheckButton" to="VBoxContainer/TrailCheckButton" method="_on_FpsCheckButton_toggled"]
+[connection signal="toggled" from="VBoxContainer/BigTextButton" to="VBoxContainer/BigTextButton" method="_on_BigTextButton_toggled"]
+[connection signal="toggled" from="CornerScreenFixToggle" to="VBoxContainer/FpsCheckButton" method="_on_CornerScreenFixToggle_toggled"]
+[connection signal="pressed" from="DeleteInfoMobile/Button" to="DeleteInfo" method="DeleteFunction"]

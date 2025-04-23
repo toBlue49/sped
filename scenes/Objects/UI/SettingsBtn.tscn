@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://textures/settings_hover.png" type="Texture" id=1]
+[ext_resource path="res://textures/settings.png" type="Texture" id=2]
+[ext_resource path="res://scripts/UI/SettingsBtn.gd" type="Script" id=3]
+
+[node name="TextureButton" type="TextureButton"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 2 )
+texture_hover = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[connection signal="pressed" from="." to="." method="_on_TextureButton_pressed"]

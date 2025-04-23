@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/UI/QuitBtn.gd" type="Script" id=1]
+[ext_resource path="res://textures/UI/EXIT.png" type="Texture" id=2]
+[ext_resource path="res://textures/UI/EXIT_hover.png" type="Texture" id=3]
+
+[node name="QuitBtn" type="TextureButton"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 3 )
+script = ExtResource( 1 )
+
+[connection signal="button_up" from="." to="." method="_on_QuitBtn_button_up"]

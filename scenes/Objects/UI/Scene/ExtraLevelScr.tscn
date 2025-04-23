@@ -1,0 +1,284 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://textures/uibg.png" type="Texture" id=1]
+[ext_resource path="res://textures/UI/logo.png" type="Texture" id=2]
+[ext_resource path="res://textures/UI/LevelSelect/level16_2.png" type="Texture" id=3]
+[ext_resource path="res://scenes/Objects/UI/changeSceneBtn.tscn" type="PackedScene" id=4]
+[ext_resource path="res://textures/Fonts/ConcertOne-font.tres" type="DynamicFont" id=5]
+[ext_resource path="res://textures/Fonts/ConcertOne-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://textures/UI/LevelSelect/level18.png" type="Texture" id=7]
+[ext_resource path="res://textures/UI/LevelSelect/level18_2.png" type="Texture" id=8]
+[ext_resource path="res://textures/UI/LevelSelect/level16.png" type="Texture" id=9]
+[ext_resource path="res://textures/UI/LevelSelect/level19.png" type="Texture" id=10]
+[ext_resource path="res://textures/UI/LevelSelect/level17.png" type="Texture" id=11]
+[ext_resource path="res://textures/UI/LevelSelect/level21_2.png" type="Texture" id=12]
+[ext_resource path="res://textures/UI/LevelSelect/level17_2.png" type="Texture" id=13]
+[ext_resource path="res://textures/UI/LevelSelect/level20_2.png" type="Texture" id=14]
+[ext_resource path="res://textures/UI/LevelSelect/level21.png" type="Texture" id=15]
+[ext_resource path="res://textures/UI/LevelSelect/level19_2.png" type="Texture" id=16]
+[ext_resource path="res://textures/UI/LevelSelect/level20.png" type="Texture" id=17]
+[ext_resource path="res://textures/UI/LevelSelect/normalLevel_btn.png" type="Texture" id=18]
+[ext_resource path="res://textures/UI/LevelSelect/normalLevel_btn_2.png" type="Texture" id=19]
+[ext_resource path="res://textures/UI/back.png" type="Texture" id=36]
+[ext_resource path="res://textures/UI/back_hover.png" type="Texture" id=37]
+[ext_resource path="res://textures/UI/LevelSelect/levellocked.png" type="Texture" id=38]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.113725, 0.113725, 0.113725, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 2
+border_color = Color( 0.329412, 0.329412, 0.329412, 1 )
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.439216, 0.439216, 0.439216, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.211765, 0.211765, 0.211765, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.254902, 0.254902, 0.254902, 1 )
+
+[sub_resource type="DynamicFont" id=6]
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="Theme" id=7]
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color_disabled = Color( 0.901961, 0.901961, 0.901961, 0.2 )
+Button/colors/font_color_focus = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 0
+Button/fonts/font = ExtResource( 5 )
+Button/styles/disabled = SubResource( 1 )
+Button/styles/focus = SubResource( 2 )
+Button/styles/hover = SubResource( 3 )
+Button/styles/normal = SubResource( 4 )
+Button/styles/pressed = SubResource( 5 )
+Fonts/base_type = "Fonts"
+Fonts/fonts/large = ExtResource( 5 )
+Fonts/fonts/normal = SubResource( 6 )
+Label/fonts/font = ExtResource( 5 )
+TextEdit/constants/completion_lines = 3
+
+[node name="ExtraLevelScr" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -3.0
+margin_bottom = 11.0
+theme = SubResource( 7 )
+
+[node name="Bg" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 3.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 1
+
+[node name="Logo" type="TextureRect" parent="."]
+anchor_left = 0.320313
+anchor_top = 0.04
+anchor_right = 0.680664
+anchor_bottom = 0.346667
+margin_bottom = -1.52588e-05
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Levels" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="lvl1Btn" parent="Levels" instance=ExtResource( 4 )]
+anchor_left = 0.17238
+anchor_top = 0.536825
+anchor_right = 0.270323
+anchor_bottom = 0.700491
+margin_right = 0.0
+margin_bottom = 0.0
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 38 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+next_scene_path = "res://scenes/Lvls/Level16.tscn"
+level_select = 16
+
+[node name="lvl2Btn" parent="Levels" instance=ExtResource( 4 )]
+anchor_left = 0.308521
+anchor_top = 0.536825
+anchor_right = 0.406464
+anchor_bottom = 0.700491
+margin_right = 0.0
+margin_bottom = 0.0
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 13 )
+texture_disabled = ExtResource( 38 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+next_scene_path = "res://scenes/Lvls/Level17.tscn"
+level_select = 17
+
+[node name="lvl3Btn" parent="Levels" instance=ExtResource( 4 )]
+anchor_left = 0.450539
+anchor_top = 0.536825
+anchor_right = 0.548482
+anchor_bottom = 0.700491
+margin_right = 0.0
+margin_bottom = 0.0
+rect_pivot_offset = Vector2( 49, 48.9998 )
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 8 )
+texture_disabled = ExtResource( 38 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+next_scene_path = "res://scenes/Lvls/Level18.tscn"
+level_select = 18
+
+[node name="lvl4Btn" parent="Levels" instance=ExtResource( 4 )]
+anchor_left = 0.591577
+anchor_top = 0.536825
+anchor_right = 0.68952
+anchor_bottom = 0.700491
+margin_right = 0.0
+margin_bottom = 0.0
+rect_pivot_offset = Vector2( 49, 48.9998 )
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 16 )
+texture_hover = ExtResource( 16 )
+texture_disabled = ExtResource( 38 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+next_scene_path = "res://scenes/Lvls/Level19.tscn"
+level_select = 19
+
+[node name="lvl5Btn" parent="Levels" instance=ExtResource( 4 )]
+anchor_left = 0.732615
+anchor_top = 0.536825
+anchor_right = 0.830558
+anchor_bottom = 0.700491
+margin_right = 0.0
+margin_bottom = 0.0
+rect_pivot_offset = Vector2( 49, 48.9998 )
+texture_normal = ExtResource( 17 )
+texture_pressed = ExtResource( 14 )
+texture_hover = ExtResource( 14 )
+texture_disabled = ExtResource( 38 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+next_scene_path = "res://scenes/Lvls/Level20.tscn"
+level_select = 20
+
+[node name="lvl21" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="lvl6Btn" parent="lvl21" instance=ExtResource( 4 )]
+anchor_left = 0.450539
+anchor_top = 0.744681
+anchor_right = 0.548482
+anchor_bottom = 0.908347
+margin_right = 0.0
+margin_bottom = 0.0
+rect_pivot_offset = Vector2( 49, 48.9998 )
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 12 )
+texture_hover = ExtResource( 12 )
+texture_disabled = ExtResource( 38 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+next_scene_path = "res://scenes/Lvls/Level21.tscn"
+level_select = 21
+
+[node name="BackBtn" parent="." instance=ExtResource( 4 )]
+anchor_left = 0.0244858
+anchor_top = 0.0409165
+anchor_right = 0.151812
+anchor_bottom = 0.253682
+margin_right = 0.0
+margin_bottom = 0.0
+rect_pivot_offset = Vector2( 1278, 537.12 )
+texture_normal = ExtResource( 36 )
+texture_pressed = ExtResource( 37 )
+texture_hover = ExtResource( 37 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+next_scene_path = "res://scenes/Objects/UI/Scene/MainScr.tscn"
+level_select = -1
+
+[node name="normalLvLBtn" parent="." instance=ExtResource( 4 )]
+anchor_left = 0.8619
+anchor_top = 0.798691
+anchor_right = 0.959843
+anchor_bottom = 0.962357
+margin_right = 0.0
+margin_bottom = 0.0
+rect_pivot_offset = Vector2( 1278, 537.12 )
+texture_normal = ExtResource( 18 )
+texture_pressed = ExtResource( 19 )
+texture_hover = ExtResource( 19 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+next_scene_path = "res://scenes/Objects/UI/Scene/LevelScr.tscn"
+level_select = -1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0 )
+
+[node name="LoadingLabel" type="Label" parent="."]
+visible = false
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -197.0
+margin_top = -75.0
+margin_right = -30.0
+margin_bottom = -35.0
+custom_fonts/font = ExtResource( 5 )
+text = "Loading..."

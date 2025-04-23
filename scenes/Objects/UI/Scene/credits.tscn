@@ -1,0 +1,128 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://textures/Fonts/ConcertOne-font-small.tres" type="DynamicFont" id=1]
+[ext_resource path="res://textures/Fonts/ConcertOne-font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://textures/Fonts/ConcertOne-font-huge.tres" type="DynamicFont" id=3]
+[ext_resource path="res://textures/UI/logo - SMALL.png" type="Texture" id=4]
+[ext_resource path="res://textures/gradient_credits.png" type="Texture" id=5]
+[ext_resource path="res://scripts/UI/credits.gd" type="Script" id=6]
+[ext_resource path="res://scenes/Objects/UI/ThemeWithButton.tres" type="Theme" id=7]
+
+[node name="Credits" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+
+[node name="GradientCredits2" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 1
+
+[node name="Scroll" type="Control" parent="."]
+anchor_top = 0.493333
+anchor_right = 1.0
+anchor_bottom = 1.54667
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Logo-Small" type="TextureRect" parent="Scroll"]
+anchor_right = 1.0
+anchor_bottom = 0.333333
+texture = ExtResource( 4 )
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="Scroll"]
+anchor_top = 0.321667
+anchor_right = 1.0
+anchor_bottom = 0.44
+custom_fonts/font = ExtResource( 3 )
+text = "A game by Marlon49"
+align = 1
+
+[node name="Label2" type="Label" parent="Scroll"]
+anchor_top = 0.541667
+anchor_right = 1.0
+anchor_bottom = 2.23787
+margin_bottom = -486.349
+custom_fonts/font = ExtResource( 2 )
+text = "Most of the code................Marlon49
+
+Timer Code....................Johnny Goss
+
+Graphics/Music...................Marlon49
+
+Made with..................Godot Engine 3
+
+Copy Pasted Code..........Godot Forums
+
+Font...............................Concert One
+
+Used Programs:
+Graphics - paint.net
+Music/Sound - MPC Beats
+
+\"it's a game\" ~me
+
+ok! bye (press esc)
+
+
+
+
+
+
+
+
+
+why are you still here? PRESS ESCAPE
+there is nothing more to this ok?"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( -246, -100 )
+mouse_filter = 2
+color = Color( 0, 0, 0, 0 )
+
+[node name="Notes" type="Label" parent="."]
+visible = false
+anchor_left = 0.765625
+anchor_right = 1.0
+anchor_bottom = 0.106667
+margin_right = -8.0
+custom_fonts/font = ExtResource( 1 )
+text = "Hold Space to speed up!
+Press Esc to exit."
+align = 2
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="scrollButton" type="Button" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.0078125
+anchor_top = 0.0133333
+anchor_right = 0.1875
+anchor_bottom = 0.173333
+theme = ExtResource( 7 )
+text = "Exit"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[connection signal="button_down" from="scrollButton" to="." method="_on_scrollButton_button_down"]
+[connection signal="button_up" from="scrollButton" to="." method="_on_scrollButton_button_up"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

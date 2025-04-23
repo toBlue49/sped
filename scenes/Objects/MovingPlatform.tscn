@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://textures/tileset_black.png" type="Texture" id=1]
+[ext_resource path="res://scripts/MovingPlatform.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 96, 32 )
+
+[node name="MovingPlatform" type="KinematicBody2D"]
+position = Vector2( 96, 32 )
+collision_layer = 2
+collision_mask = 3
+collision/safe_margin = 0.07
+motion/sync_to_physics = true
+moving_platform_apply_velocity_on_leave = 2
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 12 )
+
+[node name="BlockRight" type="Sprite" parent="CollisionShape2D"]
+position = Vector2( 64, 0 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 4
+frame = 3
+
+[node name="BlockMiddle" type="Sprite" parent="CollisionShape2D"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 4
+frame = 24
+
+[node name="BlockLeft" type="Sprite" parent="CollisionShape2D"]
+position = Vector2( -64, 0 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 4
+frame = 2
+
+[node name="Tween" type="Tween" parent="."]
+repeat = true
+playback_process_mode = 0
+playback/repeat = true

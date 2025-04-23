@@ -1,0 +1,157 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://textures/uibg.png" type="Texture" id=1]
+[ext_resource path="res://textures/UI/logo.png" type="Texture" id=2]
+[ext_resource path="res://scenes/Objects/UI/QuitBtn.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Objects/UI/changeSceneBtn.tscn" type="PackedScene" id=4]
+[ext_resource path="res://textures/Fonts/ConcertOne-font.tres" type="DynamicFont" id=5]
+[ext_resource path="res://scenes/Objects/UI/Theme.tres" type="Theme" id=6]
+[ext_resource path="res://textures/Fonts/ConcertOne-font-small.tres" type="DynamicFont" id=7]
+[ext_resource path="res://textures/UI/settings_hover.png" type="Texture" id=8]
+[ext_resource path="res://textures/UI/settings.png" type="Texture" id=9]
+[ext_resource path="res://textures/UI/play_btn2.png" type="Texture" id=10]
+[ext_resource path="res://textures/UI/play_btn.png" type="Texture" id=11]
+[ext_resource path="res://scripts/UI/LinkButton.gd" type="Script" id=12]
+
+[node name="MainScr" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 6 )
+
+[node name="Bg" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 1
+
+[node name="Logo" type="TextureRect" parent="."]
+anchor_left = 0.320313
+anchor_top = 0.04
+anchor_right = 0.680664
+anchor_bottom = 0.346667
+margin_bottom = -1.52588e-05
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+
+[node name="PlayBtn" parent="." instance=ExtResource( 4 )]
+anchor_left = 0.382813
+anchor_top = 0.48
+anchor_right = 0.630859
+anchor_bottom = 0.693333
+margin_right = 0.0
+margin_bottom = 0.0
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 10 )
+stretch_mode = 4
+next_scene_path = "res://scenes/Objects/UI/Scene/LevelScr.tscn"
+level_select = -1
+
+[node name="PlaytestLabel" type="Label" parent="."]
+visible = false
+anchor_left = 0.382813
+anchor_top = 0.346667
+anchor_right = 0.614258
+anchor_bottom = 0.413333
+custom_fonts/font = ExtResource( 5 )
+text = "Test Build"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="OtherPlaytestLabel" type="Label" parent="."]
+visible = false
+anchor_top = 0.333333
+anchor_right = 1.0
+anchor_bottom = 0.4
+custom_fonts/font = ExtResource( 5 )
+text = "1.1 Update Playtest Beta"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VersionLabel" type="Label" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = -48.0
+margin_right = 245.0
+margin_bottom = -8.0
+custom_fonts/font = ExtResource( 7 )
+text = "Version 1.1.1b"
+valign = 2
+
+[node name="CheckUpdateLabel" type="Label" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 160.0
+margin_top = -48.0
+margin_right = 472.0
+margin_bottom = -8.0
+custom_colors/font_color = Color( 0.541176, 0.705882, 0.972549, 1 )
+custom_fonts/font = ExtResource( 7 )
+text = "Don't forget to check for Updates!"
+valign = 2
+
+[node name="LinkButton" type="LinkButton" parent="CheckUpdateLabel"]
+margin_top = 18.0
+margin_right = 312.0
+margin_bottom = 42.0
+script = ExtResource( 12 )
+
+[node name="Control" type="Control" parent="."]
+anchor_left = 0.867188
+anchor_right = 1.0
+anchor_bottom = 0.426667
+
+[node name="QuitBtn" parent="Control" instance=ExtResource( 3 )]
+anchor_left = 0.117647
+anchor_top = 0.03125
+anchor_right = 0.959752
+anchor_bottom = 0.53125
+margin_right = 0.0
+margin_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+expand = true
+stretch_mode = 5
+
+[node name="SettingsBtn" parent="Control" instance=ExtResource( 4 )]
+anchor_left = 0.176471
+anchor_top = 0.53125
+anchor_right = 0.882353
+anchor_bottom = 0.90625
+margin_right = 0.0
+margin_bottom = 0.0
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 8 )
+stretch_mode = 5
+next_scene_path = "res://scenes/Objects/UI/Scene/OptionsScr.tscn"
+level_select = -1
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+anchor_left = -7.0
+anchor_right = 1.0
+anchor_bottom = 2.344
+margin_left = 6.10352e-05
+margin_bottom = -0.0640259
+mouse_filter = 2
+color = Color( 0, 0, 0, 0 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( -246, -100 )
+mouse_filter = 2
+color = Color( 0, 0, 0, 0 )
+
+[connection signal="pressed" from="CheckUpdateLabel/LinkButton" to="CheckUpdateLabel/LinkButton" method="_on_LinkButton_pressed"]
